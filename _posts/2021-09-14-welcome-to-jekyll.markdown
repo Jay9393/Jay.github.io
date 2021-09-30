@@ -1,29 +1,160 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2021-09-14 18:03:38 +0900
-categories: jekyll update
+type: tech
+date:   2021-09-14 18:03
+category: Ruby
+title: Ruby - Array method
+post-header: true
+header-img: img/main.png
+hash-tag: [Culture, Team, Workplace]
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+### [Array란]
 
-Jekyll requires blog post files to be named according to the following format:
+- 같은 종류의 값들을 한 변수(배열타입)에 넣어둘 때 사용함
 
-`YEAR-MONTH-DAY-title.MARKUP`
+- [ ] (대괄호)를 사용하여 묶고, ,(쉼표)를 사용하여 배열 안에 들어가는 개별 요소를 구분함
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
-Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+### [Array 기본]
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+- 선언하기
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+1) 변수명 = [요소1, 요소2, 요소3] 
+
+2) 변수명 = Array.new # => 빈 배열의 변수를 만듬 
+
+3) 변수명 = Array.new(요소갯수) { Hash.new } # => [ { }, { }, { }, { } ]  - 빈 해시 4개가 들어가는 하나의 배열을 만듬
+
+4) 변수명 = Array.new(3) { Array.new(4) } # => [ [1, 2, 3, 4번째 요소], [1, 2, 3, 4번째 요소], [1, 2, 3, 4번째 요소] ]
+
+5) 변수명2 = Array.new(Array변수명1) # => Array1의 크기와 요소가 Array2에 그대로 복사됨(같은 참조값을 가지지는 않음, 독립적임)
+
+ 
+
+- 요소 조회 : Array변수명[index_num] - 몇번째를 꺼낼 것인지에 따라 index_num은 바뀌고, index_num은 0부터 시작함(1번째가 0임)
+
+ 
+
+### [Array 메서드, 연산자]
+
+배열 : arr = [1, 2, 3, 4, 5]
+
+ 
+
+1) arr.at(0) - 결과값 1, 배열에 포함되어있는 요소를 꺼내기위해 사용하는 메서드, index가 - 일 경우 요소 마지막부터 꺼내옴
+
+2) arr.first / arr.last - 결과값 1과 5, 배열의 첫번째와 마지막 요소를 꺼내기위한 메서드, 파라미터로 숫자를 넘길 경우 첫번째 + n개 까지 리턴받음
+
+3) arr.take(2) - 결과값 [1, 2], 배열의 첫번째 요소에서 n-1번째(배열 index는 0부터 시작)까지 꺼내기위한 메서드, 리턴형태는 배열
+
+4) arr.fetch(1) - 결과값 2, 배열의 n-1번째 요소를 꺼내기위한 메서드, fetch 두번째 인자를 넣고 첫번째 인자에 배열에 포함된 index보다 큰 값을 넣을 경우 두번째 인자가 기본으로 설정되어 리턴됨(배열 요소 조회시 out bound 에러를 없애기위해 사용됨)
+
+5) arr.drop(2) - 결과값 [3, 4, 5], 첫번째 요소부터 n-1번째까지 배열에서 없앨 때 사용하는 메서드
+
+6) arr.length / arr.count - 결과값 5, 배열의 크기(요소 포함 크기)를 알아보기 위한 메서드
+
+7) arr.empty? - 결과값 false, 배열에 요소들이 있는지 없는지 체크하는 메서드(nil과 다름)
+
+8) arr.push(7) - 결과값 [1, 2, 3, 4, 5, 7], 배열의 요소로 n을 넣을 때 사용하는 메서드
+
+9) arr >> 7 - 결과값과 사용 이유는 8번과 동일
+
+10) arr.unshift(3) - 결과값 [3, 1, 2 ,3 ,4 ,5], 배열의 첫번째 요소에 원하는 값을 넣을 때 사용하는 메서드
+
+11) arr.insert(2, '추', '가', '값') - 결과값 [1, 2, '추', '가', '값', 3, 4, 5], 원하는 배열 index 위치에 값을 넣을 때 사용하는 메서드(요소 갯수 상관x)
+
+12) arr.pop - 결과값 [1, 2, 3, 4], 배열 요소 마지막번째를 없애고 리턴할 때 사용하는 메서드(pop 이라는 메서드명처럼 하나를 톡하고 내침)
+
+13) arr.shift - 결과값 [2, 3, 4, 5], 배열 요소 첫번째를 없애고 리턴할 때 사용하는 메서드
+
+14) arr.delete_at(1) - 결과값 [1, 3, 4, 5], 원하는 배열 n번째 요소를 없앨 때 사용하는 메서드
+
+15) arr.delete(2) - 결과값 [1, 3, 4, 5], 얼핏보면 14번과 같지만 15번은 배열 요소 중 파라미터에 해당하는 값을 모두 삭제하는 메서드
+
+16) arr.compact - 결과값 [1, 2, 3, 4, 5], 배열 요소 중 nil 값을 없애기 위한 메서드
+
+17) arr.uniq - 결과값 [1, 2, 3, 4, 5], 배열 요소 중 중복되는 것이 있으면 중복 요소를 하나로 모은 뒤 나머지는 다 삭제하고 리턴하는 메서드
+
+18) arr.include?(1) - 결과값 true, 배열 요소 중 파라미터로 넘기는 값이 있는지 없는지 여부(boolean)를 묻는 메서드
+
+19) arr.each { |a| print a } - 결과값 12345, 배열 요소를 하나씩 빼내어(each) 출력하는(print) 메서드
+
+20) arr.reverse_each { |a| print a } - 결과값 54321, 배열의 요소를 빼내는데 역방향으로 빼내는 메서드(reverse_each)
+
+21) arr.map { |a| a**2 } - 결과값 [1, 4, 9, 16, 25], 배열 요소를 하나씩 빼내어 일정의 수식에 의해 연산(**)을 한 후 다시 배열을 만드는 메서드
+
+22) arr.select { |a| a>3} - 결과값 [4,5], 배열 요소를 하나씩 가져와 일정의 연산에 의해 해당되는 값만 추려주는 메서드
+
+23) arr.reject { |a| a>3} - 결과값 [1,2,3], 22번 항목과는 반대로 해당되지 않는 값을 추려주는 메서드
+
+24) arr.drop_while { |a| a<3 } - 결과값 [3,4,5], 배열 요소를 하나씩 가져와 일정의 연산에 의해 해당되는 것을 추려주는 메서드
+
+25) arr.delete_if { |a| a<4} - 결과값 [4,5], 배열 요소를 하나씩 가져와 일정의 연산에 의해 해당되는 것을 추려주는 메서드
+
+26) arr.keep_if { |a| a<2} - 결과값 [1], 배열 요소를 하나씩 가져와 일정의 연산에 의해 해당되는 것을 추려주는 메서드
+27) arr & [1,2,4,6,7] - 결과값 [1,2,4], 두 배열을 비교했을 때 공통된 요소만 뽑아오는 연산자( & )
+
+28) arr * 3 - 결과값 [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5], 배열의 요소를 n번 곱하여 배열을 만드는 연산자 ( * 와 정수 함께 사용 )
+
+29) arr * "" - 결과값 "12345", 배열의 요소를 합쳐 String로 만드는 연산자 ( *와 "" 함께 사용, "" 안에 문자를 넣을 경우 요소 사이사이에 들어감)
+
+29) arr + ["a","b"] - 결과값 [1,2,3,4,5,"a","b"], 두 배열의 요소를 하나로 합쳐 배열을 만드는 연산자 ( + )
+
+30) arr - [1,2,3,4] - 결과값 [5], 두 배열 요소에서 공통된 요소를 없애는 연산자 ( - )
+
+31) arr <=> [1,4,6] - 결과값 -1, 기준배열(왼), 비교배열(오) 요소를 비교했을 때 공통된 값 포함여부를 묻는 연산자(같으면 1, 있으면 -1, 없으면 nil)
+
+32) arr == [1,2,3] - 결과값 false, 두 배열의 요소가 완전 같은지 비교한 결과를 나타내는 연산자 ( == )
+
+33) arr[1] + arr[3] - 결과값 6, 배열의 요소 중 인덱스에 해당하는 요소를 꺼내어 연산함( 문자인 경우 문자열로 만들어줌)
+
+34) arr.clear - 결과값 [], 배열의 요소를 모두 없애주는 메서드(nil 과는 다름, empty)
+
+35) arr.collect { |a| a*2 } - 결과값 [2,4,6,8,10], 배열의 요소를 하나씩 꺼내어 일정의 연산을 한 후 배열을 만들어주는 메서드(!를 통해 그대로 저장됨)
+
+36) arr.map.with_index { |a, idx| print a +","idx } - 결과값 1,0,2,1,3,2,4,3,5,4, 요소를 꺼내어(+배열요소 index) 일정 연산 후 배열을 만드는 메서드
+
+37) arr.concat([6, 7]) - 결과값 [1,2,3,4,5,6,7], 파라미터로 넘기는 배열(필히)의 요소를 기준 배열에 추가하는 메서드
+
+38) arr.count - 결과값 5, 배열의 크기(요소 개수)를 리턴받는 메서드
+
+39) arr.cycle(2) { |a| puts a } - 결과값 1~5까지 2번 출력, n번 배열의 요소를 각각 일정 연산하는 메서드(n번 지정없을 시 무한반복)
+
+40) arr.delete(5) - 결과값 [1,2,3,4], 파라미터로 넘기는 값에 해당하는 배열 요소가 있을 경우 삭제하는 메서드, 없을 경우 nil 리턴
+
+41) arr.index(1) - 결과값 0, 파라미터로 넘기는 값에 해당하는 배열 요소가 몇번째에 위치해있는지를 리턴받는 메서드
+
+42) arr.flatten - 결과값 [1,2,3,4,5], 배열 요소로 배열이 있다면 일반 요소로 바꾸는 메서드, 양의 정수를 파라미터로 넘기면 그 갯수만큼만 바꿈
+
+43) arr.replace([6,7,8]) - 결과값 [6,7,8], 파라미터로 넘기는 배열로 해당 배열을 바꾸는 메서드
+
+44) arr.join - 결과값 "12345", 배열 요소들을 하나의 문자열로 만드는 메서드, 파라미터로 문자를 넣으면 요소 중간에 문자를 넣고 문자열을 만듬
+
+45) arr.length - 결과값 5, 배열의 크기(요소 개수)를 리턴받는 메서드
+
+46) arr.permutation.to_a - 배열의 요소를 가지고 나올 수 있는 경우의 수를 만들고(permutation) 배열 타입으로 바꾸는(to_a) 메서드 
+
+46-1) arr.permutation(2).to_a - 46번에서 (n)을 추가함, 요소가 5개지만 2개씩 묶어서 나올 수 있는 경우의 수를 만들어줌
+
+47) arr.reverse - 결과값 [5,4,3,2,1], 배열의 요소 순서를 거꾸로 뒤집어주는 메서드
+
+48) arr.reverse_each { |a| puts a } - 결과값 54321, 배열의 요소 순서를 거꾸로 뒤집어 하나씩(reverse_each) 출력하는(puts) 메서드
+
+49) arr.sample(3) - 결과값 [3,4,1] (랜덤임), 배열 요소 중 랜덤으로 3개를 뽑아 하나의 배열로 만들어주는 메서드, 파라미터 없을 시 하나만 뽑음
+
+50) arr.shuffle - 결과값 랜덤, 배열 요소 순서를 뒤섞는 메서드
+
+51) arr.slice(2..4) - 결과값 [3,4,5], 정해진 범위(2..4)에 해당하는 배열 요소를 가져오는 메서드
+
+52) arr.sort - 결과값 [1,2,3,4,5], 배열 요소를 오름차순으로 정렬하는 메서드
+
+53) arr.take(2) - 결과값 [1,2], 배열 첫번째 요소부터 n개까지만 뽑아 배열을 만드는 메서드
+
+54) arr.take_while { |i| i<3 } - 결과값 [1,2,3], 배열 요소 중 일정의 연산에 해당하는 배열 요소 index에 맞는 요소만 꺼내와 배열을 만드는 메서드
+
+ 
+
+### [Array 참고자료]
+
+- 공식 API 문서 : http://ruby-doc.org/core-2.2.0/Array.html

@@ -1,0 +1,39 @@
+<script>
+    function switchMenuVisible() {
+        if ($('ul').hasClass('hide')) {
+            $('ul').removeClass('hide');
+        } else {
+            $('ul').addClass('hide');
+        }
+    }
+  </script>
+  
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="/">
+          <span>신재's 블로그</span>
+        </a>
+      </div>
+  
+      <ul class="hide">
+        
+        <li class="transition">
+          <a href="portfolio.html" >
+            포트폴리오
+          </a>
+        </li>
+        
+        <li class="transition">
+          <a href=""  class="active" >
+            미니게임
+          </a>
+        </li>
+        
+      </ul>
+  
+      <div class="dropdown" onclick="switchMenuVisible()">
+        <div class="icon">☰</div>
+      </div>
+    </div>
+  </nav>

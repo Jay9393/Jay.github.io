@@ -1,0 +1,56 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* BODY */
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+/* HEADER */
+.header-background {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    max-height: 1080px;
+    background: url(/IMG.jpeg);
+    background-size: cover;
+    padding: 15px;
+    overflow: hidden;
+}
+.header h1 {
+    color:white;
+    margin:2px;
+}
+.header h2 {
+    color:#007;
+    margin-top: 2px;
+}
+
+.header-container {
+    display: flexbox;
+    text-align: center;
+}
+
+.header-around:link {
+        color: #fff;
+        text-decoration: none;
+}
+
+.header-around {
+    display: inline-block;
+    border: 3px solid white ;
+    border-radius: 30px;
+    width: 50%;
+    margin-bottom: 1em;
+    color:white;
+}
+
+.header-around:hover {
+    cursor: pointer;
+    opacity: .6;
+}

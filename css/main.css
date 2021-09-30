@@ -1,3 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,12 +20,17 @@ summary, time, mark, audio, video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
+
+html {
+  font-family: "Source Sans Pro","APPLE SD Gothic Neo",HelveticaNeue,Helvetica,"NanumGothic","맑은 고딕","Malgun Gothic",arial,sans-serif,"Source Sans Pro",sans-serif;
+}
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-  line-height: 1;
+  line-height: 3;
 }
 blockquote, q {
   quotes: none;
@@ -41,6 +50,10 @@ strong, b {
 em, i {
   font-style: italic;
 }
+header img {
+  width: 80%;
+  position: relative;
+}
 a img {
   border: none;
 }
@@ -49,18 +62,52 @@ h1 {
     margin-top: 0;
   }
   a {
-    color: #f00;
+    color: #222;
   }
   h2 + p {
       font-size: 0.8em;
       font-style: italic;
       margin: 1em;
   }
+  h2 {
+    font-size: 5vw;
+    font-weight: bold;
+    
+  }
   
   /* HERO STYLES */
+  .hero-content {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  .hero-content h1 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 7vw;
+    margin-bottom: 0.25em;
+  }
+  .hero-content .social-link {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #557c83;
+  }
+  .hero-content .social-link:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .hero-home{
+    background-image: url(/IMG_8207.jpeg);
+    background-position: center top;
+  }
   .full-hero {
     background-color: #c7dbfc;
-    height: 50vh;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100vh;
+    padding-top: 10vh;
   }
   
   /* SOCIAL STYLES */
@@ -92,20 +139,21 @@ h1 {
   }
   
   /* BIO STYLES */
-  .bio-wrapper {
+  .bio-wrapper {    
     font-size: 24px;
     margin: auto;
     max-width: 960px;
     overflow: hidden;
   }
   .bio-box {
-    border: 1px solid black;
+    
+    border-bottom: 1px solid rgba(0,0,0,0.07);
     box-sizing: border-box;
-    float: left;
+    /* float: left; */
     font-size: 1rem;
     margin: 40px 1% 0;
-    padding: 2%;
-    width: 23%;
+    padding: 36px 0;
+    
   }
   .bio-box h3 {
     color: #fff;
@@ -114,7 +162,7 @@ h1 {
     text-align: center;
   }
   .bio-box img {
-    width: 100%;
+    width: 30%;
   }
 
   .bio-box .social-link {
@@ -128,6 +176,16 @@ h1 {
   }
   .bio-copy a {
     color: green;
+  }
+  /* HEADER */
+  .header {
+    background-color: #fff;
+    color: #aaa;
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    top: 0px;
+    padding-top: 16px;
   }
   .header-nav {
     float: right;
@@ -155,3 +213,108 @@ h1 {
   .header-logo:active {
       opacity: 0.5;
   }
+  /* FOOTER */
+  .footer {
+    background-color: #fff;
+    padding: 10vh 0 15vh;
+    text-align: center;
+  }
+  .footer img {
+    width: 50px;
+  }
+  .footer h3 {
+    color: #ee3a45;
+  }
+  .footer-nav a {
+    color:papayawhip;
+  }
+
+  /* COLUMN */
+.col-three {
+  display: flex;
+  flex: 1;
+}
+.col {
+  box-sizing: border-box;
+  padding: 2em;
+}
+.col-three .col ~ .col {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.col-three .col-nav {
+  flex: 0 1 15em;
+}
+.col-three .col-content {
+  flex: 1;
+}
+.col-three .col-aside {
+  flex: 0 1 20em;
+}
+
+.page {
+  margin: 10vh auto 15vh;
+  max-width: 980px;
+  width: 85vw;
+}
+
+/* blog */
+
+
+.blog-recent {
+  text-align: right;
+}
+.blog-title-list {
+  list-style: none;
+  padding: 0;
+}
+.blog-title-list li ~ li {
+  margin-top: 1.5em;
+}
+.blog-title-list span {
+  color: #999;
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+.blog-posts ~ .blog-posts {
+  /* border-top: 1px dotted rgba(0, 0, 0, 0.1); */
+  margin-top: 4em;
+  padding-top: 4em;
+}
+.blog-posts {
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  box-sizing: border-box;
+}
+.blog-posts .post-header {
+  font-size: 0.8rem;
+}
+.post-header {
+  margin-bottom: 1.5em;
+}
+.post-header img,
+.post-header .social-link {
+  margin-right: 0.5em;
+}
+.post-header img {
+  border-radius: 99px;
+  display: inline-block;
+  /* height: 2.5em; */
+  vertical-align: middle;
+}
+.posts-image {
+  background-position: center;
+  background-size: cover;
+  height: 6em;
+  margin-bottom: 1.5em;
+}
+.post-body {
+  color: #73777c;
+}
+
+/* .content-container {
+  display: flex;
+  flex: 1 1 auto;
+  padding-top: 10vh;
+  width: 100%;
+} */
